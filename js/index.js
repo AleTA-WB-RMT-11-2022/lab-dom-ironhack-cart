@@ -6,12 +6,15 @@ function updateSubtotal(product) {
   const quantity = product.querySelector('.quantity input')
   const subtotal = product.querySelector('.subtotal span')
 
-  const priceValue = parseFloat(price.innerHTML)
-  const quantityValue = Number(quantity.value)
+  const priceValue = price.innerHTML
+  const quantityValue = quantity.value
+  console.log(priceValue)
   console.log(quantityValue)
+  
 
   const subtotalValue = priceValue * quantityValue
-  console.log(subtotalValue)
+  const element = document.getElementsByTagName('span')[1]
+  console.log(element)
   
   subtotal.innerHTML = subtotalValue
 
@@ -35,7 +38,7 @@ function calculateAll() {
   })
 
   // ITERATION 3
-  const total = document.getElementById('total-value')
+  const total = document.querySelector("#total-value span")
   return total.innerHTML = totalSum
 }
 
@@ -106,6 +109,7 @@ function createProduct() {
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
+  
 
   const removeButtons = document.querySelectorAll(".btn-remove");
   removeButtons.forEach((eachButton) => {
